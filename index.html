@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">    
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Javascript Table</title>
+		<link href="JavaScriptTable.css" rel="stylesheet" type="text/css">
+		<script src="JavaScriptTable.js"></script>
+	</head>
+
+	<body>
+		<div id="main" class="grid_parent">
+			<p>Simple Javascript Data Table</p>
+			<div id="zone"></div> <!-- The Table zone-->
+		</div>
+		<script>
+			 // Settings like width and height 
+			 var CONFIG ='{"width":"700px","height":"350px"}';
+		   	 // Defining the header of the grid : colums names (matching data), types , titles and width
+			 var HEADER = '{"arr":[{"name":"id","type":"protected","title":"Key","width":"0px"},{"name":"firstname","type":"string","title":"First name","width":"200px"},{"name":"lastname","type":"string","title":"Last name","width":"200px","placeholder":"Name your hero !"},{"name":"birthdate","type":"mm-dd-yyyy","title":"Birthdate","width":"150px"},{"name":"langage","type":"string","title":"Language","width":"150px"}]}';
+			 // It's an objet containing an array 'arr' of objects representing the rows of our grid
+			 // You provide for each cell, the name (which must match the name in the header) and the value
+			 var DATA = '{"arr": [{"id": "1","firstname": "John ","lastname": "Doe","birthdate": "12-30-1989","langage": "C++" }, {"id": "2","firstname": "Denis","lastname": "Ritchie","birthdate": "09-09-1941","langage": "C"}, {"id": "3","firstname": "Kenneth","lastname": "Thompson","birthdate": "02-04-1943","langage": "Go"}, {"id": "4","firstname": "James","lastname": "Gosling","birthdate": "05-19-1955","langage": "Java" }, {"id": "5","firstname": "Brendan ","lastname": "Eich","birthdate": "07-04-1961","langage": "Javascript"}, {"id": "6","firstname": "Guido","lastname": "Van Rossum","birthdate": "01-31-1956","langage": "Python" }, {"id": "7","firstname": "Yukihiro","lastname": "Matsumoto","birthdate": "04-14-1965","langage": "Ruby" }, {"id": "8","firstname": "Roberto","lastname": "Lerusalimschy","birthdate": "05-21-1960","langage": "Lua" }, {"id": "9","firstname": "Rasmus","lastname": "Lerdorf","birthdate": "11-22-1968","langage": "Php" }, {"id": "10","firstname": "Jean","lastname": "Ichbiah","birthdate": "03-25-1940","langage": "Ada" }]}';
+			 // Calling JavaScriptTable : param1 : grid zone id, param2 : id of the grid itself, param3 : grid class 
+			var myTable = new JavaScriptTable("zone","tableId","grid-table grid-table-1");
+				
+			myTable.SetConfig(CONFIG); // Settting the config
+			myTable.SetHeader(HEADER); // Setting the hearder with names, types and width
+			myTable.SetData(DATA); // Setting the data to populate the rows
+			myTable.Draw(); // Drawing the grid
+		</script>
+	</body>
+</html>
